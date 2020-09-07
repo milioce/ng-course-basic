@@ -8,22 +8,13 @@ import { Component } from '@angular/core';
 
 export class ServerComponent {
   serverName = '';
-  allowNewServer = false;
-  serverCreated = false;
+  servers = ['Server A', 'Server B', 'Server C', 'Server D'];
 
   constructor() {
-    setTimeout(() => {
-      this.allowNewServer = true;
-    }, 2000);
   }
 
   onCreateServer() {
-    this.serverCreated = true;
-  }
-
-  onUpdateServerName(event: Event) {
-    const name = (event.target as HTMLInputElement).value;
-    this.serverName = name;
+    this.servers.push(this.serverName);
   }
 
 }
