@@ -1,21 +1,10 @@
 <h3>Servers</h3>
 
 <p>Server with ID {{serverId}} is
-  <strong [ngStyle]="{color: 'blue'}">{{serverStatus}}</strong>
-</p>
-
-<p>Server with ID {{serverId}} is
-  <strong [ngStyle]="{color: getColor()}">{{serverStatus}}</strong>
-</p>
-
-<p>Server with ID {{serverId}} is
-  <strong [ngStyle]="{color: colorStatus}">{{serverStatus}}</strong>
-</p>
-
-<p>Server with ID {{serverId}} is
-  <strong [ngStyle]="{backgroundColor: getColor()}">{{serverStatus}}</strong>
-</p>
-
-<p>Server with ID {{serverId}} is
-  <strong [ngStyle]="{'background-color': getColor(), 'color': 'white'}">{{serverStatus}}</strong>
+  <strong [ngClass]="{
+    'online': serverStatus === 'Online',
+    'offline': serverStatus === 'Offline'
+  }">
+    {{serverStatus}}
+  </strong>
 </p>

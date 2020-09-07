@@ -1,3 +1,13 @@
 p {
   font-weight: bold;
 }
+
+.online {
+  background-color: rgb(81, 255, 0);
+  color: #fff;
+}
+
+.offline {
+  background-color: #f00;
+  color: #000;
+}
