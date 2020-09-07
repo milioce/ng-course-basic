@@ -12,8 +12,7 @@ export class ServerComponent {
   constructor() {
   }
 
-  onUpdateServerName(event: Event) {
-    const name = (event.target as HTMLInputElement).value;
-    this.serverName = name;
+  onApply() {
+    this.serverName = 'myName';
   }
 }
