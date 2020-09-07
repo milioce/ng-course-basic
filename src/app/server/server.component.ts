@@ -7,9 +7,8 @@ import { Component } from '@angular/core';
 })
 
 export class ServerComponent {
-  serverId = 10;
-  serverStatus = 'Offline';
   allowNewServer = false;
+  serverCreationStatus = 'No se ha creado un servidor';
 
   constructor() {
     setTimeout(() => {
@@ -17,7 +16,7 @@ export class ServerComponent {
     }, 2000);
   }
 
-  getServerStatus() {
-    return this.serverStatus;
+  onCreateServer() {
+    this.serverCreationStatus = 'Ya se ha creado un servidor!'
   }
 }
