@@ -7,20 +7,23 @@ import { Component } from '@angular/core';
 })
 
 export class ServerComponent {
-  serverId = 10;
-  serverStatus = 'offline';
-  colorStatus = '';
+  serverName = '';
+  allowNewServer = false;
+  serverCreated = false;
 
   constructor() {
-    this.serverStatus = Math.random() > 0.5 ? 'Online' : 'Offline';
-    this.colorStatus = this.getColor();
+    setTimeout(() => {
+      this.allowNewServer = true;
+    }, 2000);
   }
 
-  getServerStatus() {
-    return this.serverStatus;
+  onCreateServer() {
+    this.serverCreated = true;
   }
 
-  getColor() {
-    return this.serverStatus === 'Online' ? 'green' : 'red';
+  onUpdateServerName(event: Event) {
+    const name = (event.target as HTMLInputElement).value;
+    this.serverName = name;
   }
+
 }
