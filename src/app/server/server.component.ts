@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, TrackByFunction } from '@angular/core';
 
 @Component({
   selector: 'app-server',
@@ -10,6 +10,7 @@ export class ServerComponent {
   serverName = '';
   servers = [
     {
+      id: 1,
       instanceType: 'medium',
       name: 'Production',
       status: 'stable',
@@ -17,6 +18,7 @@ export class ServerComponent {
       maintenanceCost: 49.90
     },
     {
+      id: 2,
       instanceType: 'large',
       name: 'User database',
       status: 'stable',
@@ -24,6 +26,7 @@ export class ServerComponent {
       maintenanceCost: 25.85
     },
     {
+      id: 3,
       instanceType: 'small',
       name: 'Stage',
       status: 'failed',
@@ -31,6 +34,7 @@ export class ServerComponent {
       maintenanceCost: 10.00
     },
     {
+      id: 4,
       instanceType: 'small',
       name: 'Development',
       status: 'initializing',
@@ -50,5 +54,12 @@ export class ServerComponent {
     }
 
     return classes[server.status];
+  }
+
+  trackByFunction(index, item) {
+    if (!item) {
+      return null;
+    }
+    return item.id;
   }
 }

@@ -1,9 +1,9 @@
 <div class="container">
     <h2>Server List</h2>
     <ul class="list-group">
-      <li class="list-group-item" *ngFor="let server of servers">
+      <li class="list-group-item" *ngFor="let server of servers; trackBy: trackByFunction">
       <span class="badge" [ngClass]="getStatusClass(server)">{{ server.status }}</span>
-      <span class="ml-2">{{ server.name }} | {{ server.instanceType }}</span>
+      <span class="ml-2"><strong>{{ server.name }}</strong> | {{ server.instanceType }}</span>
       </li>
     </ul>
 </div>
