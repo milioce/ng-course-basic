@@ -8,13 +8,47 @@ import { Component } from '@angular/core';
 
 export class ServerComponent {
   serverName = '';
-  servers = ['Server A', 'Server B', 'Server C', 'Server D'];
+  servers = [
+    {
+      instanceType: 'medium',
+      name: 'Production',
+      status: 'stable',
+      started: new Date(15, 1, 2017),
+      maintenanceCost: 49.90
+    },
+    {
+      instanceType: 'large',
+      name: 'User database',
+      status: 'stable',
+      started: new Date(15, 1, 2017),
+      maintenanceCost: 25.85
+    },
+    {
+      instanceType: 'small',
+      name: 'Stage',
+      status: 'failed',
+      started: new Date(15, 1, 2017),
+      maintenanceCost: 10.00
+    },
+    {
+      instanceType: 'small',
+      name: 'Development',
+      status: 'initializing',
+      started: new Date(15, 1, 2017),
+      maintenanceCost: 10.00
+    },
+  ];
 
   constructor() {
   }
 
-  onCreateServer() {
-    this.servers.push(this.serverName);
-  }
+  getStatusClass(server) {
+    const classes = {
+      'stable': 'badge-success',
+      'failed': 'badge-danger',
+      'initializing': 'badge-warning'
+    }
 
+    return classes[server.status];
+  }
 }
