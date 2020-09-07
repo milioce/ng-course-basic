@@ -9,8 +9,13 @@ import { Component } from '@angular/core';
 export class ServerComponent {
   serverId = 10;
   serverStatus = 'Offline';
+  allowNewServer = false;
 
-  constructor() { }
+  constructor() {
+    setTimeout(() => {
+      this.allowNewServer = true;
+    }, 2000);
+  }
 
   getServerStatus() {
     return this.serverStatus;
