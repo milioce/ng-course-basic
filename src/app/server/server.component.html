@@ -10,5 +10,7 @@
 
 <h3>Server list</h3>
 <ul>
-  <li *ngFor="let server of servers">{{ server }}</li>
+  <li *ngFor="let server of servers; let i = index">
+  <strong [ngStyle]="{ backgroundColor: i > 2 ? 'yellow' : 'blue'}">{{ server }}</strong>
+  </li>
 </ul>
