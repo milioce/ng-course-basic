@@ -11,7 +11,7 @@ export class ServerComponent {
   serverName = '';
   servers: Server[] = [
     new Server('Production', 1, 'stable', 'medium'),
-    new Server('User database', 2, 'stable', 'large'),
+    new Server('User database MySQL master', 2, 'stable', 'large'),
     new Server('Stage', 3, 'failed', 'small'),
     new Server('Development', 4, 'initializing', 'small')
   ];
