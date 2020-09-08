@@ -15,13 +15,8 @@
       <div>
         <h3>Servers</h3>
         <ul class="list-group">
-          <li class="list-group-item d-flex justify-content-between" *ngFor="let server of servers">
-            <div>
-              <span class="badge" [ngClass]="getStatusClass(server)">{{ server.status }}</span>
-              <span class="ml-2"><strong>{{ server.name }}</strong> | {{ server.instanceType }}</span>
-            </div>
-            <button class="btn btn-sm btn-primary">Change status</button>
-          </li>
+          <app-server [server]="server" *ngFor="let server of servers">
+          </app-server>
         </ul>
       </div>
     </div>

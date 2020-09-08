@@ -5,12 +5,14 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ServersComponent } from './servers/servers.component';
 import { ShortenPipe } from './pipes/shorten.pipe';
+import { ServerComponent } from './servers/server/server.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ServersComponent,
-    ShortenPipe
+    ShortenPipe,
+    ServerComponent
   ],
   imports: [
     BrowserModule,

@@ -24,14 +24,4 @@ export class ServersComponent {
     this.servers.push(server);
   }
 
-  getStatusClass(server: Server) {
-    const classes = {
-      'stable': 'badge-success',
-      'failed': 'badge-danger',
-      'initializing': 'badge-warning'
-    }
-
-    return classes[server.status];
-  }
-
 }
