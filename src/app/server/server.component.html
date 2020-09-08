@@ -1,4 +1,5 @@
 <div class="container">
+  <h2>Servers</h2>
   <div class="form-group">
     <label for="name">Server name</label>
     <input type="text" id="name" class="form-control" [(ngModel)]="serverName">
@@ -9,11 +10,15 @@
     Add Server
   </button>
 
-  <h2 class="mt-4">Server List</h2>
+  <h3 class="mt-4">Server List</h3>
   <ul class="list-group">
     <li class="list-group-item" *ngFor="let server of servers">
     <span class="badge" [ngClass]="getStatusClass(server)">{{ server.status }}</span>
-    <span class="ml-2"><strong>{{ server.name }}</strong></span>
+    <span class="ml-2">
+      <strong>{{ server.name }}</strong> |
+        {{ server.instanceType }} |
+        {{ server.started }}
+    </span>
     </li>
   </ul>
 </div>

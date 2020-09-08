@@ -10,17 +10,17 @@ import { Server } from './server.model';
 export class ServerComponent {
   serverName = '';
   servers: Server[] = [
-    new Server('Production', 1, 'stable'),
-    new Server('User database', 2, 'stable'),
-    new Server('Stage', 3, 'failed'),
-    new Server('Development', 4, 'initializing')
+    new Server('Production', 1, 'stable', 'medium'),
+    new Server('User database', 2, 'stable', 'large'),
+    new Server('Stage', 3, 'failed', 'small'),
+    new Server('Development', 4, 'initializing', 'small')
   ];
 
   constructor() {
   }
 
   onCreateServer() {
-    const server = new Server(this.serverName, this.servers.length, 'stable');
+    const server = new Server(this.serverName, this.servers.length, 'stable', 'medium');
     this.servers.push(server);
   }
 
