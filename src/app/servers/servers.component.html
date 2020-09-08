@@ -1,0 +1,30 @@
+<div class="container">
+  <h2>Servers</h2>
+  <div class="form-group">
+    <label for="name">Server name</label>
+    <input type="text" id="name" class="form-control" [(ngModel)]="serverName">
+  </div>
+  <button
+    class="btn btn-primary"
+    (click)="onCreateServer()">
+    Add Server
+  </button>
+
+  <div class="row px-2 mt-4">
+    <div class="col-12">
+      <div>
+        <h3>Servers</h3>
+        <ul class="list-group">
+          <li class="list-group-item d-flex justify-content-between" *ngFor="let server of servers">
+            <div>
+              <span class="badge" [ngClass]="getStatusClass(server)">{{ server.status }}</span>
+              <span class="ml-2"><strong>{{ server.name }}</strong> | {{ server.instanceType }}</span>
+            </div>
+            <button class="btn btn-sm btn-primary">Change status</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>

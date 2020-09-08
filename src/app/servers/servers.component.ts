@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { Server } from './server.model';
 
 @Component({
-  selector: 'app-server',
-  templateUrl: 'server.component.html',
-  styleUrls: ['server.component.css']
+  selector: 'app-servers',
+  templateUrl: 'servers.component.html',
+  styleUrls: ['servers.component.css']
 })
 
-export class ServerComponent {
+export class ServersComponent {
   serverName = '';
   servers: Server[] = [
     new Server('Production', 1, 'stable', 'medium'),
