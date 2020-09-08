@@ -15,7 +15,9 @@
       <div>
         <h3>Servers</h3>
         <ul class="list-group">
-          <app-server [server]="server" *ngFor="let server of servers">
+          <app-server *ngFor="let server of servers"
+            [server]="server"
+            (serverChanged)="changeServerStatus($event)">
           </app-server>
         </ul>
       </div>

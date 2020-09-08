@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Server } from '../server.model';
 
 @Component({
@@ -8,6 +8,7 @@ import { Server } from '../server.model';
 })
 export class ServerComponent implements OnInit {
   @Input() server: Server;
+  @Output() serverChanged = new EventEmitter<Server>();
 
   constructor() { }
 
@@ -19,6 +20,11 @@ export class ServerComponent implements OnInit {
     }
 
     return classes[server.status];
+  }
+
+  onChangeStatus() {
+    //this.server.status = this.server.status === 'stable' ? 'failed' : 'stable';
+    this.serverChanged.emit(this.server);
   }
 
   ngOnInit(): void {

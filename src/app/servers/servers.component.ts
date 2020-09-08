@@ -24,4 +24,9 @@ export class ServersComponent {
     this.servers.push(server);
   }
 
+  changeServerStatus(server: Server) {
+    const status = server.status === 'stable' ? 'failed' : 'stable';
+    this.servers[server.id - 1].status = status;
+  }
+
 }
