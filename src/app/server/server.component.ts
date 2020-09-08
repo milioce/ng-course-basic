@@ -1,4 +1,5 @@
-import { Component, TrackByFunction } from '@angular/core';
+import { Component } from '@angular/core';
+import { Server } from './server.model';
 
 @Component({
   selector: 'app-server',
@@ -8,45 +9,22 @@ import { Component, TrackByFunction } from '@angular/core';
 
 export class ServerComponent {
   serverName = '';
-  servers = [
-    {
-      id: 1,
-      instanceType: 'medium',
-      name: 'Production',
-      status: 'stable',
-      started: new Date(15, 1, 2017),
-      maintenanceCost: 49.90
-    },
-    {
-      id: 2,
-      instanceType: 'large',
-      name: 'User database',
-      status: 'stable',
-      started: new Date(15, 1, 2017),
-      maintenanceCost: 25.85
-    },
-    {
-      id: 3,
-      instanceType: 'small',
-      name: 'Stage',
-      status: 'failed',
-      started: new Date(15, 1, 2017),
-      maintenanceCost: 10.00
-    },
-    {
-      id: 4,
-      instanceType: 'small',
-      name: 'Development',
-      status: 'initializing',
-      started: new Date(15, 1, 2017),
-      maintenanceCost: 10.00
-    },
+  servers: Server[] = [
+    new Server('Production', 1, 'stable'),
+    new Server('User database', 2, 'stable'),
+    new Server('Stage', 3, 'failed'),
+    new Server('Development', 4, 'initializing')
   ];
 
   constructor() {
   }
 
-  getStatusClass(server) {
+  onCreateServer() {
+    const server = new Server(this.serverName, this.servers.length, 'stable');
+    this.servers.push(server);
+  }
+
+  getStatusClass(server: Server) {
     const classes = {
       'stable': 'badge-success',
       'failed': 'badge-danger',
@@ -56,10 +34,4 @@ export class ServerComponent {
     return classes[server.status];
   }
 
-  trackByFunction(index, item) {
-    if (!item) {
-      return null;
-    }
-    return item.id;
-  }
 }
