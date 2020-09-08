@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { User } from './user.model';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ng-course';
+  user: User;
+  users: User[];
+
+  constructor() {
+    const user: User = {
+      id: 1,
+      name: 'Test',
+      sayHello() {
+        console.log('Hello!')
+      }
+    }
+    user.sayHello();
+  }
 }
