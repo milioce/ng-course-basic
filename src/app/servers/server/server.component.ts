@@ -1,16 +1,17 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Server } from '../server.model';
+import { ServersService } from '../services/servers.service';
 
 @Component({
   selector: 'app-server',
   templateUrl: './server.component.html',
-  styleUrls: ['./server.component.css']
+  styleUrls: ['./server.component.css'],
 })
 export class ServerComponent implements OnInit {
   @Input() server: Server;
   @Output() serverChanged = new EventEmitter<Server>();
 
-  constructor() { }
+  constructor(private service: ServersService) { }
 
   getStatusClass(server: Server) {
     const classes = {
@@ -23,8 +24,8 @@ export class ServerComponent implements OnInit {
   }
 
   onChangeStatus() {
-    //this.server.status = this.server.status === 'stable' ? 'failed' : 'stable';
-    this.serverChanged.emit(this.server);
+    // this.serverChanged.emit(this.server);
+    this.service.changeStatus(this.server);
   }
 
   ngOnInit(): void {

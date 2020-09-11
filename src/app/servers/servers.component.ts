@@ -24,7 +24,7 @@ export class ServersComponent {
   }
 
   changeServerStatus(server: Server) {
-    this.service.changeStatus(server);
+    // this.service.changeStatus(server);
   }
 
 }
