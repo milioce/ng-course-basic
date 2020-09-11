@@ -6,7 +6,6 @@ import { ServersService } from './services/servers.service';
   selector: 'app-servers',
   templateUrl: 'servers.component.html',
   styleUrls: ['servers.component.css'],
-  providers: [ServersService]
 })
 
 export class ServersComponent {

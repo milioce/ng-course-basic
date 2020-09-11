@@ -1,7 +1,9 @@
+import { Injectable } from '@angular/core';
 import { Server } from '../server.model';
+import { LoggerService } from './logger.service';
 
+@Injectable()
 export class ServersService {
-
   servers: Server[] = [
     new Server('Production', 0, 'stable', 'medium'),
     new Server('User database MySQL master', 1, 'stable', 'large'),
@@ -9,7 +11,7 @@ export class ServersService {
     new Server('Development', 3, 'initializing', 'small')
   ];
 
-  constructor() {}
+  constructor(private logger: LoggerService) {}
 
   addServer(server: Server) {
     this.servers.push(server);
@@ -21,6 +23,6 @@ export class ServersService {
   }
 
   logNewServer(server: Server) {
-    console.log(server);
+    this.logger.logData(server);
   }
 }
