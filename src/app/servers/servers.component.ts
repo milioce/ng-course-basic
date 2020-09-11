@@ -11,25 +11,20 @@ import { ServersService } from './services/servers.service';
 
 export class ServersComponent {
   serverName = '';
-  servers: Server[] = [
-    new Server('Production', 1, 'stable', 'medium'),
-    new Server('User database MySQL master', 2, 'stable', 'large'),
-    new Server('Stage', 3, 'failed', 'small'),
-    new Server('Development', 4, 'initializing', 'small')
-  ];
+  servers: Server[];
 
   constructor(private service: ServersService) {
+    this.servers = service.servers;
   }
 
   onCreateServer(serverName: string) {
     const server = new Server(serverName, this.servers.length, 'stable', 'medium');
-    this.servers.push(server);
+    this.service.addServer(server);
     this.service.logNewServer(server);
   }
 
   changeServerStatus(server: Server) {
-    const status = server.status === 'stable' ? 'failed' : 'stable';
-    this.servers[server.id - 1].status = status;
+    this.service.changeStatus(server);
   }
 
 }
