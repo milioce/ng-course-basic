@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Server } from './server.model';
 
 @Component({
@@ -7,7 +7,9 @@ import { Server } from './server.model';
   styleUrls: ['servers.component.css']
 })
 
-export class ServersComponent {
+export class ServersComponent implements OnInit, AfterViewInit {
+  @ViewChild('pRef', {static: false}) pRef: ElementRef;
+
   serverName = '';
   servers: Server[] = [
     new Server('Production', 1, 'stable', 'medium'),
@@ -17,10 +19,22 @@ export class ServersComponent {
   ];
 
   constructor() {
+    setTimeout(() => {
+      this.pRef.nativeElement.innerHTML = 'DOM updated successfully accessing with ElementRef!!!';
+      this.pRef.nativeElement.setAttribute('style', 'color: red');
+      }, 3000);
   }
 
-  onCreateServer() {
-    const server = new Server(this.serverName, this.servers.length, 'stable', 'medium');
+  ngOnInit() {
+    console.log('onInit', this.pRef.nativeElement);
+  }
+
+  ngAfterViewInit() {
+    console.log('afterViewInit', this.pRef.nativeElement);
+  }
+
+  onCreateServer(serverName: string) {
+    const server = new Server(serverName, this.servers.length, 'stable', 'medium');
     this.servers.push(server);
   }
 

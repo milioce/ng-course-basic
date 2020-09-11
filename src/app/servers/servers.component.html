@@ -1,12 +1,12 @@
+<p #pRef>Testing ViewChild, this is the default value</p>
 <div class="container">
   <ng-content></ng-content>
   <div class="form-group">
     <label for="name">Server name</label>
-    <input type="text" id="name" class="form-control" [(ngModel)]="serverName">
+    <input #serverNameInput type="text" id="name" class="form-control">
   </div>
-  <button
-    class="btn btn-primary"
-    (click)="onCreateServer()">
+  <button class="btn btn-primary"
+    (click)="onCreateServer(serverNameInput.value)">
     Add Server
   </button>
 
