@@ -6,8 +6,6 @@ import { AppComponent } from './app.component';
 import { ServersComponent } from './servers/servers.component';
 import { ShortenPipe } from './pipes/shorten.pipe';
 import { ServerComponent } from './servers/server/server.component';
-import { ServersService } from './servers/services/servers.service';
-import { LoggerService } from './servers/services/logger.service';
 
 @NgModule({
   declarations: [
@@ -20,10 +18,7 @@ import { LoggerService } from './servers/services/logger.service';
     BrowserModule,
     FormsModule,
   ],
-  providers: [
-    ServersService,
-    LoggerService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

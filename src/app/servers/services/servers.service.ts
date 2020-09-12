@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Server } from '../server.model';
 import { LoggerService } from './logger.service';
-
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ServersService {
   servers: Server[] = [
     new Server('Production', 0, 'stable', 'medium'),
