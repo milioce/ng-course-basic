@@ -1,18 +1,22 @@
 <div class="container">
-  <ng-content></ng-content>
-  <div class="form-group">
-    <label for="name">Server name</label>
-    <input #serverNameInput type="text" id="name" class="form-control">
-  </div>
+  <h1>Servers</h1>
+
   <button class="btn btn-primary"
-    (click)="onCreateServer(serverNameInput.value)">
+    (click)="displayForm = true">
     Add Server
   </button>
 
-  <div class="row px-2 mt-4">
+  <div *ngIf="displayForm" class="card mt-4">
+    <h2 class="card-header">Create new server</h2>
+    <div class="card-body">
+      <app-create-server (cancel)="displayForm = false"></app-create-server>
+    </div>
+  </div>
+
+  <div *ngIf="!displayForm" class="row px-2 mt-4 mb-2">
     <div class="col-12">
       <div>
-        <h3>Servers</h3>
+        <h2>Server List</h2>
         <ul class="list-group">
           <app-server *ngFor="let server of servers"
             [server]="server"

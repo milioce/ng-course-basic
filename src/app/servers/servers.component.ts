@@ -9,17 +9,14 @@ import { ServersService } from './services/servers.service';
 })
 
 export class ServersComponent {
-  serverName = '';
   servers: Server[];
+  displayForm = false;
 
   constructor(private service: ServersService) {
     this.servers = service.servers;
   }
 
-  onCreateServer(serverName: string) {
-    const server = new Server(serverName, this.servers.length, 'stable', 'medium');
-    this.service.addServer(server);
-    this.service.logNewServer(server);
+  onCreateServer() {
   }
 
   changeServerStatus(server: Server) {

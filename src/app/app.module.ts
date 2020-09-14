@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { ServersComponent } from './servers/servers.component';
 import { ShortenPipe } from './pipes/shorten.pipe';
 import { ServerComponent } from './servers/server/server.component';
+import { CreateServerComponent } from './servers/create-server/create-server.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ServersComponent,
     ShortenPipe,
-    ServerComponent
+    ServerComponent,
+    CreateServerComponent
   ],
   imports: [
     BrowserModule,
