@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Server } from '../server.model';
 
 @Component({
   selector: 'app-create-server',
@@ -8,6 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class CreateServerComponent implements OnInit {
   @Output() cancel = new EventEmitter<boolean>();
+  @Output() submit = new EventEmitter<Server>();
 
   instanceTypeOptions = ['large', 'medium', 'small'];
   positiveNumberPattern = /^\d*[1-9]$/;
@@ -52,7 +54,17 @@ export class CreateServerComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('form.value', this.form.value);
+    if (this.form.valid) {
+      const server = new Server(
+        this.name.value,
+        this.id.value,
+        this.status.value,
+        this.instanceType.value
+      );
+      this.submit.emit(server);
+    } else {
+      this.form.markAllAsTouched();
+    }
   }
 
   onCancel() {

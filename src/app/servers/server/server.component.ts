@@ -15,9 +15,8 @@ export class ServerComponent implements OnInit {
 
   getStatusClass(server: Server) {
     const classes = {
-      'stable': 'badge-success',
-      'failed': 'badge-danger',
-      'initializing': 'badge-warning'
+      'Online': 'badge-success',
+      'Offline': 'badge-danger',
     }
 
     return classes[server.status];

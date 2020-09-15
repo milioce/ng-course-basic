@@ -16,7 +16,9 @@ export class ServersComponent {
     this.servers = service.servers;
   }
 
-  onCreateServer() {
+  onCreateServer(server: Server) {
+    this.service.addServer(server);
+    this.displayForm = false;
   }
 
   changeServerStatus(server: Server) {

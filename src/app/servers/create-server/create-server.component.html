@@ -5,6 +5,7 @@
       <input id="name" class="form-control" type="text"
              formControlName="name"
              placeholder="Please, enter a server name">
+
        <span *ngIf="name.errors && name.touched && name.hasError('required')"
          class="error">El nombre es obligatorio</span>
        <span *ngIf="name.errors && name.touched && name.hasError('maxlength')"
@@ -17,6 +18,12 @@
       <input id="id" class="form-control" type="number"
              formControlName="id"
              placeholder="Please, enter a server ID">
+
+       <span *ngIf="id.errors && id.touched && id.hasError('required')"
+         class="error">El id es obligatorio</span>
+       <span *ngIf="id.errors && id.touched && id.hasError('pattern')"
+             class="error">El id debe ser mayor que 0
+       </span>
     </div>
     <div class="form-group">
       <label for="status">Status</label>
