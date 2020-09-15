@@ -14,6 +14,7 @@ export class CreateServerComponent implements OnInit {
   instanceTypeOptions = ['large', 'medium', 'small'];
   positiveNumberPattern = /^\d*[1-9]$/;
   maxLengthAllowed = 50;
+  forbiddenServerNames = ['Test', 'Server'];
   form: FormGroup;
 
   get name(): FormControl {
@@ -42,7 +43,8 @@ export class CreateServerComponent implements OnInit {
     this.form = new FormGroup({
       name: new FormControl(null, [
         Validators.required,
-        Validators.maxLength(this.maxLengthAllowed)
+        Validators.maxLength(this.maxLengthAllowed),
+        this.forbiddenNames.bind(this)
       ]),
       id: new FormControl(null, [
         Validators.required,
@@ -69,6 +71,14 @@ export class CreateServerComponent implements OnInit {
 
   onCancel() {
     this.cancel.emit(true);
+  }
+
+  forbiddenNames(control: FormControl): {[s: string]: boolean} {
+    if (this.forbiddenServerNames.includes(control.value)) {
+      return {'forbiddenName': true};
+    }
+
+    return null;
   }
 
   onDebug() {
