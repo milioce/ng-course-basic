@@ -4,12 +4,15 @@
       <label for="name">Name</label>
       <input id="name" name="name" class="form-control" type="text"
              ngModel
+             required
+             minlength="5" maxlength="15"
              placeholder="Please, enter a server name">
     </div>
     <div class="form-group">
       <label for="id">ID</label>
       <input id="id" name="id" class="form-control" type="number"
              ngModel
+             required
              placeholder="Please, enter a server ID">
     </div>
     <div class="form-group">
