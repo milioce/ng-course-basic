@@ -12,8 +12,23 @@ export class CreateServerComponent implements OnInit {
   instanceTypeOptions = ['large', 'medium', 'small'];
   positiveNumberPattern = /^\d*[1-9]$/;
   maxLengthAllowed = 50;
-
   form: FormGroup;
+
+  get name(): FormControl {
+    return this.form.get('name') as FormControl;
+  }
+
+  get id(): FormControl {
+    return this.form.get('id') as FormControl;
+  }
+
+  get status(): FormControl {
+    return this.form.get('status') as FormControl;
+  }
+
+  get instanceType(): FormControl {
+    return this.form.get('instanceType') as FormControl;
+  }
 
   constructor() { }
 
@@ -55,17 +70,17 @@ export class CreateServerComponent implements OnInit {
     console.groupEnd();
 
     console.group('control name');
-      console.log('.touched', this.form.controls.name.touched);
-      console.log('.dirty', this.form.controls.name.dirty);
-      console.log('.valid', this.form.controls.name.valid);
-      console.log('.errors', this.form.controls.name.errors);
+      console.log('.touched', this.name.touched);
+      console.log('.dirty', this.name.dirty);
+      console.log('.valid', this.name.valid);
+      console.log('.errors', this.name.errors);
     console.groupEnd();
 
     console.group('control id');
-      console.log('.touched', this.form.controls.id.touched);
-      console.log('.dirty', this.form.controls.id.dirty);
-      console.log('.valid', this.form.controls.id.valid);
-      console.log('.errors', this.form.controls.id.errors);
+      console.log('.touched', this.id.touched);
+      console.log('.dirty', this.id.dirty);
+      console.log('.valid', this.id.valid);
+      console.log('.errors', this.id.errors);
     console.groupEnd();
   }
 }
