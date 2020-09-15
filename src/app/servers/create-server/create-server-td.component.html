@@ -1,24 +1,20 @@
 <div class="container">
-  <form>
+  <form (ngSubmit)="onSubmit(f)" #f="ngForm">
     <div class="form-group">
       <label for="name">Name</label>
-      <input
-        id="name"
-        class="form-control"
-        type="text"
-        placeholder="Please, enter a server name">
+      <input id="name" name="name" class="form-control" type="text"
+             ngModel
+             placeholder="Please, enter a server name">
     </div>
     <div class="form-group">
       <label for="id">ID</label>
-      <input
-        id="id"
-        class="form-control"
-        type="number"
-        placeholder="Please, enter a server ID">
+      <input id="id" name="id" class="form-control" type="number"
+             ngModel
+             placeholder="Please, enter a server ID">
     </div>
     <div class="form-group">
       <label for="status">Status</label>
-      <select id="status" class="form-control">
+      <select id="status" name="status" ngModel class="form-control">
         <option>Online</option>
         <option>Offline</option>
       </select>
@@ -26,14 +22,14 @@
     <div class="form-group">
       <label for="instance">Instance Type</label>
       <div *ngFor="let instance of instanceTypeOptions">
-        <input
-          [value]="instance"
-          name="instanceType"
-          type="radio">
+        <input name="instanceType" type="radio"
+               [value]="instance"
+               ngModel>
           {{ instance }}
         </div>
     </div>
     <button type="submit" class="btn btn-sm btn-primary">Create Server</button>
-    <button type="submit" (click)="onCancel()" class="btn btn-sm btn-danger ml-2">Cancel</button>
+    <button type="button" (click)="onCancel()" class="btn btn-sm btn-danger ml-2">Cancel</button>
+    <button type="button" (click)="onDebug(f)" class="btn btn-sm btn-secondary ml-2">Debug</button>
   </form>
 </div>
