@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { MessagesService } from './messages.services';
 
 @Component({
@@ -6,14 +7,18 @@ import { MessagesService } from './messages.services';
   templateUrl: './receiver.component.html',
 })
 export class ReceiverComponent implements OnInit {
-  message: string;
+  message$: Observable<string>;
 
-  constructor(private service: MessagesService) { }
+  constructor(private service: MessagesService) {
+    this.message$ = this.service.message$;
+  }
 
   ngOnInit(): void {
+    /*
     this.service.message$.subscribe(message => {
       this.message = message;
     });
+    */
   }
 
 }

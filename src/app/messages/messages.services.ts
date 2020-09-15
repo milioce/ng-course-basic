@@ -9,6 +9,7 @@ export class MessagesService {
   constructor() { }
 
   sendData(message: string) {
+    console.log('sendData to observers', message);
     this.source.next(message);
   }
 }

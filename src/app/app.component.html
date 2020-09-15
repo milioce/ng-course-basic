@@ -2,5 +2,8 @@
 
 <div class="container">
   <app-emitter></app-emitter>
-  <app-receiver></app-receiver>
+  <app-receiver *ngIf="showReceiver"></app-receiver>
+
+  <button type="button" class="btn btn-primary"
+    (click)="showReceiver = !showReceiver">Toggle Receiver</button>
 </div>
