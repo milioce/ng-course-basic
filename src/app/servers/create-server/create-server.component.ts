@@ -12,7 +12,7 @@ export class CreateServerComponent implements OnInit {
   @Output() submit = new EventEmitter<Server>();
 
   instanceTypeOptions = ['large', 'medium', 'small'];
-  positiveNumberPattern = /^\d*[1-9]$/;
+  positiveNumberPattern = /^\d*[1-9]\d*$/;
   maxLengthAllowed = 50;
   forbiddenServerNames = ['Test', 'Server'];
   form: FormGroup;
@@ -37,6 +37,13 @@ export class CreateServerComponent implements OnInit {
 
   ngOnInit(): void {
     this.buildForm();
+
+    this.form.valueChanges.subscribe(value => {
+      console.log('valueChanges', value);
+    });
+    this.form.statusChanges.subscribe(status => {
+      console.log('statusChange', status);
+    });
   }
 
   buildForm() {
@@ -82,6 +89,17 @@ export class CreateServerComponent implements OnInit {
   }
 
   onDebug() {
+    const value = {
+      name: 'Name updated from setValue!',
+      id: 50,
+      status: 'Offline',
+      instanceType: 'medium'
+    };
+
+    // this.form.setValue(value);
+    // this.form.patchValue({ name: 'Name updated from patchValue!'});
+    // this.form.reset();
+
     console.clear();
     console.log('Form', this.form);
     console.group('form');
