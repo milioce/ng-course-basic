@@ -1,24 +1,21 @@
 <div class="container">
-  <form>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="name">Name</label>
-      <input
-        id="name"
-        class="form-control"
-        type="text"
-        placeholder="Please, enter a server name">
+      <input id="name" class="form-control" type="text"
+             formControlName="name"
+             placeholder="Please, enter a server name">
     </div>
     <div class="form-group">
       <label for="id">ID</label>
-      <input
-        id="id"
-        class="form-control"
-        type="number"
-        placeholder="Please, enter a server ID">
+      <input id="id" class="form-control" type="number"
+             formControlName="id"
+             placeholder="Please, enter a server ID">
     </div>
     <div class="form-group">
       <label for="status">Status</label>
-      <select id="status" class="form-control">
+      <select id="status" class="form-control"
+              formControlName="status">
         <option>Online</option>
         <option>Offline</option>
       </select>
@@ -26,10 +23,9 @@
     <div class="form-group">
       <label for="instance">Instance Type</label>
       <div *ngFor="let instance of instanceTypeOptions">
-        <input
-          [value]="instance"
-          name="instanceType"
-          type="radio">
+        <input name="instanceType" type="radio"
+          formControlName="instanceType"
+          [value]="instance">
           {{ instance }}
         </div>
     </div>
