@@ -8,6 +8,8 @@ import { ShortenPipe } from './pipes/shorten.pipe';
 import { ServerComponent } from './servers/server/server.component';
 import { CreateServerComponent } from './servers/create-server/create-server.component';
 import { CreateServerTdComponent } from './servers/create-server/create-server-td.component';
+import { EmitterComponent } from './messages/emitter.component';
+import { ReceiverComponent } from './messages/receiver.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { CreateServerTdComponent } from './servers/create-server/create-server-t
     ShortenPipe,
     ServerComponent,
     CreateServerComponent,
-    CreateServerTdComponent
+    CreateServerTdComponent,
+    EmitterComponent,
+    ReceiverComponent
   ],
   imports: [
     BrowserModule,

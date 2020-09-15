@@ -1,0 +1,9 @@
+<h2>Emisor</h2>
+
+<form class="mb-4">
+  <div class="form-group">
+    <label for="message">Escribe tu mensaje</label>
+    <input class="form-control" id="message" name="message" [(ngModel)]="msg" type="text">
+  </div>
+  <button class="btn btn-primary" type="button" (click)="sendMessage()">Enviar</button>
+</form>
