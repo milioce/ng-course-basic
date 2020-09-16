@@ -10,6 +10,9 @@ import { CreateServerComponent } from './servers/create-server/create-server.com
 import { CreateServerTdComponent } from './servers/create-server/create-server-td.component';
 import { EmitterComponent } from './messages/emitter.component';
 import { ReceiverComponent } from './messages/receiver.component';
+import { HomeComponent } from './home/home.component';
+import { UsersComponent } from './users/users.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -20,12 +23,15 @@ import { ReceiverComponent } from './messages/receiver.component';
     CreateServerComponent,
     CreateServerTdComponent,
     EmitterComponent,
-    ReceiverComponent
+    ReceiverComponent,
+    HomeComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
