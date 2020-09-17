@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { UsersComponent } from './users/users.component';
 import { AppRoutingModule } from './app-routing.module';
 import { UserComponent } from './users/user/user.component';
+import { ErrorComponent } from './error/error.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { UserComponent } from './users/user/user.component';
     ReceiverComponent,
     HomeComponent,
     UsersComponent,
-    UserComponent
+    UserComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
