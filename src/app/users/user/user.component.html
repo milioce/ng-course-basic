@@ -1,2 +1,15 @@
 <p>User Id is {{ user.id }} </p>
 <p>User name is {{ user.name }} </p>
+
+<p>
+  <a [routerLink]="['/users', 1, 'Oscar']"
+     class="btn btn-secondary">Oscar (1)</a>
+</p>
+<p>
+  <a [routerLink]="['/users', 2, 'Sara']"
+     class="btn btn-secondary">Sara (2)</a>
+</p>
+<p>
+  <a [routerLink]="['/users', 2, 'Ana']"
+     class="btn btn-secondary">Ana (3)</a>
+</p>
