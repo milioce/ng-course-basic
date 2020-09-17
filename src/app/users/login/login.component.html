@@ -1,0 +1,10 @@
+<h1>Login page</h1>
+
+<div *ngIf="!logged" class="mt-4 w-50">
+  <p>You are not logged.</p>
+  <button (click)="onLogin()" class="btn btn-primary">Login</button>
+</div>
+
+<div *ngIf="logged" class="mt-4 w-50">
+  <p>Hello, you are logged</p>
+</div>

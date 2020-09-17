@@ -15,6 +15,7 @@ import { UsersComponent } from './users/users.component';
 import { AppRoutingModule } from './app-routing.module';
 import { UserComponent } from './users/user/user.component';
 import { ErrorComponent } from './error/error.component';
+import { LoginComponent } from './users/login/login.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { ErrorComponent } from './error/error.component';
     UsersComponent,
     UserComponent,
     ErrorComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
