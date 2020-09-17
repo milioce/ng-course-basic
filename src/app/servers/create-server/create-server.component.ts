@@ -37,13 +37,6 @@ export class CreateServerComponent implements OnInit {
 
   ngOnInit(): void {
     this.buildForm();
-
-    this.form.valueChanges.subscribe(value => {
-      console.log('valueChanges', value);
-    });
-    this.form.statusChanges.subscribe(status => {
-      console.log('statusChange', status);
-    });
   }
 
   buildForm() {

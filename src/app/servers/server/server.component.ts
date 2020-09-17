@@ -37,6 +37,7 @@ export class ServerComponent implements OnInit {
   }
 
   onChangeStatus() {
-    this.service.changeStatus(this.server);
+    this.service.changeStatus(this.server)
+      .subscribe(server => this.server = server);
   }
 }

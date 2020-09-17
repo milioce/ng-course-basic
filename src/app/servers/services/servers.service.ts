@@ -1,33 +1,54 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 import { Server } from '../server.model';
 import { LoggerService } from './logger.service';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class ServersService {
-  servers: Server[] = [
-    new Server('Production', 0, 'Online', 'medium'),
-    new Server('User database MySQL master', 1, 'Online', 'large'),
-    new Server('Stage', 2, 'Offline', 'small'),
-    new Server('Development', 3, 'Offline', 'small')
-  ];
+  api = 'http://localhost:3000/servers';
 
-  constructor(private logger: LoggerService) {}
+  servers: Server[];
 
-  getServer(id: number): Server {
+  constructor(private logger: LoggerService, private http: HttpClient) {}
+
+  getServers(): Observable<Server[]> {
+    return this.http.get<Server[]>(this.api);
+  }
+
+  getServer(id: number): Observable<Server> {
+    return this.http.get<Server>(this.api + '/' + id);
+    /*
     const index = this.findIndexById(id);
     return this.servers[index];
+    */
   }
 
-  addServer(server: Server) {
-    this.servers.push(server);
+  addServer(server: Server): Observable<Server> {
+    // const body = { ...server, started: undefined };
+    const body = {
+      name: server.name,
+      status: server.status,
+      instanceType: server.instanceType,
+      started: server.started
+    };
+    return this.http.post<Server>(this.api, body);
+
+    // this.servers.push(server);
   }
 
-  changeStatus(server: Server) {
+  changeStatus(server: Server): Observable<Server> {
     const status = server.status === 'Online' ? 'Offline' : 'Online';
-    const index = this.findIndexById(server.id);
 
+    const body = { status: status };
+    return this.http.patch<Server>(this.api + '/' + server.id, body);
+
+    /*
+    const index = this.findIndexById(server.id);
     this.servers[index].status = status;
+    */
   }
 
   logNewServer(server: Server) {

@@ -1,0 +1,94 @@
+{
+  "servers": [
+    {
+      "id": 1,
+      "name": "Webserver 1",
+      "status": "Online",
+      "instanceType": "medium",
+      "started": "2020-09-17T22:43:28.867Z"
+    },
+    {
+      "id": 2,
+      "name": "Webserver 2",
+      "status": "Online",
+      "instanceType": "medium",
+      "started": "2020-09-17T22:43:28.867Z"
+    },
+    {
+      "id": 3,
+      "name": "Webserver 3",
+      "status": "Online",
+      "instanceType": "medium",
+      "started": "2020-09-17T22:43:28.867Z"
+    },
+    {
+      "id": 4,
+      "name": "Webserver 4",
+      "status": "Offline",
+      "instanceType": "medium",
+      "started": "2020-09-17T22:43:28.867Z"
+    },
+    {
+      "id": 5,
+      "name": "Database master",
+      "status": "Online",
+      "instanceType": "large",
+      "started": "2020-09-17T22:43:28.867Z"
+    },
+    {
+      "id": 6,
+      "name": "Database slave",
+      "status": "Online",
+      "instanceType": "large",
+      "started": "2020-09-17T22:43:28.867Z"
+    },
+    {
+      "id": 7,
+      "name": "Redis",
+      "status": "Online",
+      "instanceType": "medium",
+      "started": "2020-09-17T22:43:28.867Z"
+    },
+    {
+      "id": 8,
+      "name": "Stage 1",
+      "status": "Online",
+      "instanceType": "medium",
+      "started": "2020-09-17T22:43:28.867Z"
+    },
+    {
+      "id": 9,
+      "name": "Stage 2",
+      "status": "Online",
+      "instanceType": "small",
+      "started": "2020-09-17T22:43:28.867Z"
+    },
+    {
+      "id": 10,
+      "name": "Development",
+      "status": "Online",
+      "instanceType": "small",
+      "started": "2020-09-17T22:43:28.867Z"
+    },
+    {
+      "name": "Test 1",
+      "status": "Online",
+      "instanceType": "small",
+      "started": "2020-09-17T22:51:37.749Z",
+      "id": 11
+    },
+    {
+      "id": 12
+    },
+    {
+      "name": "22",
+      "status": "Online",
+      "instanceType": "small",
+      "started": "2020-09-17T22:54:17.162Z",
+      "id": 13
+    },
+    {
+      "id": 14
+    }
+  ]
+}
