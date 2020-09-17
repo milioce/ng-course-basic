@@ -4,6 +4,7 @@ import { ErrorComponent } from './error/error.component';
 import { HomeComponent } from './home/home.component';
 import { ServerComponent } from './servers/server/server.component';
 import { ServersComponent } from './servers/servers.component';
+import { ServerResolver } from './servers/services/server-resolver.service';
 import { LoginComponent } from './users/login/login.component';
 import { AuthGuardService } from './users/services/auth-guard.service';
 import { UserComponent } from './users/user/user.component';
@@ -19,7 +20,10 @@ const routes: Routes = [
   },
   { path: 'users/:id/:name', component: UserComponent },
   { path: 'servers', component: ServersComponent, children: [
-    { path: ':id', component: ServerComponent }
+    {
+      path: ':id', component: ServerComponent,
+      resolve: { 'server': ServerResolver}
+    }
   ]},
 
   { path: 'login', component: LoginComponent },
