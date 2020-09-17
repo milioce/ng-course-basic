@@ -14,18 +14,27 @@ export class ServersService {
 
   constructor(private logger: LoggerService) {}
 
+  getServer(id: number): Server {
+    const index = this.findIndexById(id);
+    return this.servers[index];
+  }
+
   addServer(server: Server) {
     this.servers.push(server);
   }
 
   changeStatus(server: Server) {
     const status = server.status === 'Online' ? 'Offline' : 'Online';
-    const index = this.servers.findIndex(item => item.id === server.id);
+    const index = this.findIndexById(server.id);
 
     this.servers[index].status = status;
   }
 
   logNewServer(server: Server) {
     this.logger.logData(server);
+  }
+
+  private findIndexById(id): number {
+    return this.servers.findIndex(item => item.id === id);
   }
 }

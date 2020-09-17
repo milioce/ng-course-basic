@@ -1,11 +1,21 @@
-server component !!
+<ng-container *ngIf="server">
+  <p>
+    <strong>ID: </strong>
+    <span class="ml-2">{{ server.id }}</span>
+  </p>
+  <p>
+    <strong>Name: </strong>
+    <span class="ml-2">{{ server.name }}</span>
+  </p>
+  <p>
+    <strong>Status: </strong>
+    <span class="ml-2 badge" [ngClass]="getStatusClass(server)">{{ server.status }}</span>
+  </p>
+  <p>
+    <strong>innstance type: </strong>
+    <span class="ml-2">{{ server.instanceType }}</span>
+  </p>
 
-<!--
-<li class="list-group-item d-flex justify-content-between">
-  <div>
-    <span class="badge" [ngClass]="getStatusClass(server)">{{ server.status }}</span>
-    <span class="ml-2"><strong>{{ server.name }}</strong> | {{ server.instanceType }}</span>
-  </div>
-  <button class="btn btn-sm btn-primary" (click)="onChangeStatus()">Change status</button>
-</li>
--->
+  <button class="btn btn-primary"
+    (click)="onChangeStatus()">Change Status</button>
+<ng-container>

@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import { Server } from '../server.model';
 import { ServersService } from '../services/servers.service';
 
@@ -8,10 +9,18 @@ import { ServersService } from '../services/servers.service';
   styleUrls: ['./server.component.css'],
 })
 export class ServerComponent implements OnInit {
-  @Input() server: Server;
-  @Output() serverChanged = new EventEmitter<Server>();
+  server: Server;
 
-  constructor(private service: ServersService) { }
+  constructor(
+    private service: ServersService,
+    private route: ActivatedRoute
+  ) { }
+
+  ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.server = this.service.getServer(+params['id']);
+    });
+  }
 
   getStatusClass(server: Server) {
     const classes = {
@@ -23,11 +32,6 @@ export class ServerComponent implements OnInit {
   }
 
   onChangeStatus() {
-    // this.serverChanged.emit(this.server);
     this.service.changeStatus(this.server);
   }
-
-  ngOnInit(): void {
-  }
-
 }
