@@ -10,6 +10,8 @@ import { Subscription } from 'rxjs';
 export class UserComponent implements OnInit, OnDestroy {
   user: {id: string, name: string};
   subscription: Subscription;
+  allowEdit = false;
+  fragment = '';
 
   constructor(private route: ActivatedRoute) { }
 
@@ -19,6 +21,17 @@ export class UserComponent implements OnInit, OnDestroy {
         id: params['id'],
         name: params['name']
       }
+    });
+
+    const queryParams = this.route.snapshot.queryParams;
+    console.log('queryParams shapshot', queryParams);
+
+    this.route.queryParams.subscribe((params: Params) => {
+      this.allowEdit = params['allowEdit'] === '1';
+    });
+
+    this.route.fragment.subscribe(value => {
+      this.fragment = value;
     });
   }
 

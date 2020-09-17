@@ -1,5 +1,10 @@
-<p>User Id is {{ user.id }} </p>
-<p>User name is {{ user.name }} </p>
+<div class="mb-2">
+  <p>User Id is {{ user.id }} </p>
+  <p>User name is {{ user.name }} </p>
+
+  <p *ngIf="allowEdit">AllowEdit is True</p>
+  <p *ngIf="fragment">fragment is {{ fragment }}</p>
+</div>
 
 <p>
   <a [routerLink]="['/users', 1, 'Oscar']"
@@ -10,6 +15,13 @@
      class="btn btn-secondary">Sara (2)</a>
 </p>
 <p>
-  <a [routerLink]="['/users', 2, 'Ana']"
-     class="btn btn-secondary">Ana (3)</a>
+  <a [routerLink]="['/users', 3, 'Ana']"
+     [queryParams]="{allowEdit: 1}"
+     class="btn btn-secondary">Ana (3) + queryString</a>
+</p>
+
+<p>
+  <a [routerLink]="['/users', 4, 'Carlos']"
+    fragment="example"
+    class="btn btn-secondary">Carlos (3) + fragment</a>
 </p>
