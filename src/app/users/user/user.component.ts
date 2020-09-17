@@ -24,7 +24,7 @@ export class UserComponent implements OnInit, OnDestroy {
     });
 
     const queryParams = this.route.snapshot.queryParams;
-    console.log('queryParams shapshot', queryParams);
+    // console.log('queryParams shapshot', queryParams);
 
     this.route.queryParams.subscribe((params: Params) => {
       this.allowEdit = params['allowEdit'] === '1';
