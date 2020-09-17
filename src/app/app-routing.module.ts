@@ -19,12 +19,11 @@ const routes: Routes = [
     canActivate: [AuthGuardService]
   },
   { path: 'users/:id/:name', component: UserComponent },
-  { path: 'servers', component: ServersComponent, children: [
-    {
-      path: ':id', component: ServerComponent,
-      resolve: { 'server': ServerResolver}
-    }
-  ]},
+
+  {
+    path: 'servers',
+    loadChildren: () => import('./servers/servers.module').then(m => m.ServersModule)
+  },
 
   { path: 'login', component: LoginComponent },
   { path: 'error', component: ErrorComponent },
