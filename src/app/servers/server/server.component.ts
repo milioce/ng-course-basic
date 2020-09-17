@@ -4,7 +4,6 @@ import { Server } from '../server.model';
 import { ServersService } from '../services/servers.service';
 
 @Component({
-  selector: 'app-server',
   templateUrl: './server.component.html',
   styleUrls: ['./server.component.css'],
 })
